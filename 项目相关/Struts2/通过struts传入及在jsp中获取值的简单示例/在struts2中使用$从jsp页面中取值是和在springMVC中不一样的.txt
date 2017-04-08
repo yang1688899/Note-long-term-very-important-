@@ -1,0 +1,1 @@
+note:在struts2中使用$从jsp页面中取值是和在springMVC中不一样的

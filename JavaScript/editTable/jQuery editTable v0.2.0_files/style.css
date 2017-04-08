@@ -1,0 +1,187 @@
+/*
+Theme Name: codebit2
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0-wpcom
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: codebit2
+Domain Path: /languages/
+Tags:
+*/
+
+/*--------------------------------------------------------------
+1.0 Alignments
+--------------------------------------------------------------*/
+.alignleft {display: inline;float: left;margin-right: 1.5em;}
+.alignright {display: inline;float: right;margin-left: 1.5em;}
+.aligncenter {clear: both;display: block;margin: 0 auto;}
+
+/*--------------------------------------------------------------
+2.0 Media
+--------------------------------------------------------------*/
+.page-content img.wp-smiley,.entry-content img.wp-smiley,.comment-content img.wp-smiley {border: none;margin-bottom: 0;margin-top: 0;padding: 0;}
+embed,iframe,object {max-width: 100%;}
+
+/*--------------------------------------------------------------
+3.0 Captions
+--------------------------------------------------------------*/
+.wp-caption {margin-bottom: 1.5em;max-width: 100%;}
+.wp-caption img[class*="wp-image-"] {display: block;margin: 0 auto;}
+.wp-caption-text {text-align: center;}
+.wp-caption .wp-caption-text {margin: 0.8075em 0;}
+
+/*--------------------------------------------------------------
+4.0 Galleries
+--------------------------------------------------------------*/
+.gallery {margin-bottom: 1.5em;}
+.gallery-item {display: inline-block;text-align: center;vertical-align: top;width: 100%;}
+.gallery-columns-2 .gallery-item {max-width: 50%;}
+.gallery-columns-3 .gallery-item {max-width: 33.33%;}
+.gallery-columns-4 .gallery-item {max-width: 25%;}
+.gallery-columns-5 .gallery-item {max-width: 20%;}
+.gallery-columns-6 .gallery-item {max-width: 16.66%;}
+.gallery-columns-7 .gallery-item {max-width: 14.28%;}
+.gallery-columns-8 .gallery-item {max-width: 12.5%;}
+.gallery-columns-9 .gallery-item {max-width: 11.11%;}
+
+/*--------------------------------------------------------------
+5.0 Custom styles
+--------------------------------------------------------------*/
+
+/* Body bg */
+body {background-color: #f8f8f8;}
+
+/* Container width */
+.row {max-width: 1560px;}
+
+/* Main top margin */
+.main {margin-top: 30px;}
+
+/* Single white box */
+.mybox {background-color: #fff;padding: 20px;margin-bottom: 30px;position: relative;border-radius:3px;}
+
+/* Radius for images */
+.myradius {-webkit-border-radius: 60px;-moz-border-radius: 60px;border-radius: 60px;}
+
+/* Page headers */
+.page-header * {margin-bottom: 5px;}
+.page-header .subheader {padding-left: 22px;}
+.page-header span {color: #eee;}
+
+/* Single white widget */
+.widget {background-color: #fff;padding: 20px;margin-bottom: 30px;border-radius:3px;}
+
+/* Widget default lists style  */
+.widget ul {list-style: none;padding: 0;margin: 0;}
+.widget ul li {border-bottom: 2px solid #fafafa;padding: 10px 0;}
+.widget ul li:last-child {border-bottom: none;}
+.widget ul.children li {padding-left: 20px;padding-bottom: 0;}
+
+/* Widget custom lists style  */
+.widget li.single-widget-voice { padding-left: 25px;position: relative; }
+.widget li.single-widget-voice > span{position: absolute;left: 0px;top: 18px;color: #eee;}
+
+/* Slider widget */
+.widget.widget_sliderwidget ul li {border-bottom: none;}
+.single-slide {padding: 20px;}
+
+/* Calendar widget */
+.widget_calendar table {width: 100%;margin-bottom: 0;border: 0;}
+.widget_calendar caption {padding: 15px 0 15px;color: #008CBA;text-transform: uppercase;}
+
+/* Text widget*/
+.widget.widget_text {padding:0;overflow:hidden;}
+
+/* Forms and button in widget */
+.widget form, .widget input[type=submit], .widget .button, form.searchform {margin-bottom: 0;}
+
+/* Pre style */
+pre.hljs { max-width: 100%;overflow: auto;font-size:14px;line-height: 24px;tab-size: 2;-moz-tab-size: 2;padding:20px;margin-bottom: 1.25rem; }
+
+/* Gists style */
+.gist table.highlight { width: 100%;border: none;margin-bottom:0; }
+
+/* Address style */
+address { margin-bottom: 1em;line-height: 1.3em; }
+
+/* Code fix */
+code {max-width: 100%;overflow: auto;}
+
+/* Label fix */
+label {white-space: normal;}
+
+/* Sticky posts */
+.sticky-badge { position: absolute;top: -4px;left: 18px;color: #F04124; }
+
+/* Post navigation */
+.nav-links div {max-width: 48%;display: inline-block;line-height: 1.3em}
+.nav-links .nav-previous {float: left;}
+.nav-links .nav-next {float: right;}
+
+/* Post accordion */
+.accordion {margin-bottom: 15px;}
+
+/* Tools */
+.tools .button {width: 100%;margin-bottom: 0; margin-top: 20px;}
+.tools .entry-header {position: relative;margin-bottom: 15px;}
+.tools img {display: block;border-radius: 3px; }
+.tools .entry-title {font-size:18px;font-weight: 800;}
+
+/* Comments */
+#comments ol.comment-list, #comments ol.children {list-style: none;padding: 0;margin: 0;}
+#comments ol.children {margin-left: 20px;}
+#comments .comment-body {padding: 20px;border-bottom: 4px solid #fafafa;position: relative;}
+.comment-reply-link, #cancel-comment-reply-link{position: absolute;top: 20px;right: 20px;}
+#cancel-comment-reply-link span {font-size: 12px;line-height: 12px;}
+#respond {position: relative;padding: 10px;}
+.form-allowed-tags {font-size: 0.8em;}
+.vcard {background-color: #fafafa;}
+.comment-metadata {font-size: 0.8em;margin-bottom: 20px;}
+
+@media screen and (max-width:1024px) {
+	#comments ol.children {margin-left: 0;}
+}
+
+/**
+ * Admin bar conflicts with top menu
+ * with media queries
+ */
+.admin-bar .fixed {top: 32px;}
+@media screen and (max-width:780px) and (min-width:600px) {
+	.admin-bar .fixed {top:46px;}
+}
+@media screen and (max-width:600px) {
+	#wpadminbar {top:-46px;}
+	.admin-bar .fixed {top:0;}
+}
+
+/**
+ * Masonry
+ * with media queries
+ */
+#masonry_container .post {width: 31.3%;overflow: hidden;}
+.post h2 {font-size:2em;}
+@media screen and (max-width:1560px) {
+	#masonry_container .post {width: 31.2%;}
+}
+@media screen and (max-width:1456px) {
+	#masonry_container .post {width: 48.3%;}
+}
+@media screen and (max-width:1370px) {
+	#masonry_container .post {width: 48%;}
+}
+@media screen and (max-width:1180px) {
+	#masonry_container .post {width: 47.7%;}
+}
+@media screen and (max-width:1040px) {
+	#masonry_container .post {width: 47.5%;}
+}
+@media screen and (max-width:960px) {
+	#masonry_container .post {width: 100%;}
+}
+
+/* Footer */
+.footer-container {background-color: #333;padding: 20px;color:#fff;margin-top: 15px;font-style: oblique;font-size:14px;text-align: center;}

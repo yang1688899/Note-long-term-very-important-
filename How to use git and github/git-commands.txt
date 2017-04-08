@@ -1,0 +1,76 @@
+cd    # change directories to your home directory
+
+cd ..   #back to the upper folder
+
+mkdir foldername    # make version-control directory
+
+editor filename.ext  #open the file whit indicated editor, if the
+  file is not exit, create a new one.
+
+pwd   #print working directory-show what directory you are in.
+
+ls    #list the files in ths directory
+
+git diff    #compare the difference between the files in staging area and
+  the files in working directory.
+
+git diff --staged   #compare the difference between the files in the most recent
+  commit and the files in the staging area.
+
+git diff commit1 commit2    #compare the difference between two commits.
+
+diff -u file1 file2   #campare the difference between two files.
+
+git log   #list all the commit that have made in the current repository.
+
+git log --stat    #list all the commit that have made in the current
+  repository whit more detail.
+  (To stop viewing git log output, press q    which stand for quit)
+
+git log --graph branch-names  #visulize the branch structure
+
+git clone url    #clone the destination repository to the current
+  directory.
+
+git config --global color.ui auto   #auto colored diff output
+
+git checkout commit-name   #restore the previous version of commit
+
+git checkout -b new-branch-name   #create a new branch and move to it.
+
+git init    #Initialized empty Git repository in current folder
+
+git status    #See the status of the repository
+
+git add filename.ext  #add the files to the staging area
+
+git reset filename.ext   #remove a file from the staging area
+
+git reset --hard    #reset the change that make in the working directory and
+  staging area that are not yet commit
+
+git branch    #show the status of the branches
+
+git branch branch-name    #create a new branch
+
+git branch -d branch-name   #delect a branch
+
+git merge branch1   #merge the branch1 into the current branch
+
+git merge --abort   #restore your files to their state before you started the
+  merge
+
+git show commit   # compare this commit to its parent
+
+git remote    #view the exiting remote repository
+
+git remote add remote-name url    #add the repository on github as a remote on your
+  computer
+
+git remote -v   #view the exiting remote repository with more detail
+
+git push remote-name branch-name    #push the branch to the remote repository in github
+
+git pull remote-name branch-name    #pull the branch in you local repository in local divice
+
+git fetch remote-nme    #fetch the update of the github repository into your local remote

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	
+	<package name="user" namespace="/user" extends="struts-default">
+			
+		<interceptors>
+			
+			<!-- intercptor的name在使用拦截器是要用到 -->
+			<interceptor name="loginCheck" class="com.yang.strutsinterceptor.interceptors.LoginCheck"></interceptor>
+				
+		</interceptors>
+			
+		<action name="login" class="com.yang.strutsinterceptor.controller.UserAction" method="login" >
+				
+			<result name="success">/WEB-INF/page/loginSuccess.jsp</result>
+			<result name="input">/WEB-INF/page/loginFail.jsp</result>
+				
+			<!-- 使用自定义拦截器前，应先调用默认的拦截器，这很重要 -->
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+				
+			<!-- 使用自定义拦截器 -->	
+			<interceptor-ref name="loginCheck"></interceptor-ref>
+		</action>
+	</package>
+	
+</struts>

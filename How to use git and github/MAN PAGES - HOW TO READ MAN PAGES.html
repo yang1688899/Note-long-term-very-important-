@@ -1,0 +1,357 @@
+
+<!-- saved from url=(0044)http://www.cs.mcgill.ca/~guide/help/man.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>MAN PAGES - HOW TO READ MAN PAGES</title>
+</head>
+
+<body>
+
+<h1>MAN PAGES</h1>
+
+<p>While they're not all well-advertised, there are actually a variety of means of getting
+help under Unix. The most important and reliable of these are `<strong>man</strong>'
+pages.&nbsp; Man pages correspond to online manuals for programs, file formats, functions,
+system calls, and so forth.&nbsp; You might have asked a UNIX question on a newsgroup only
+to get back as a reply RTFMP ( Read The "Fantastic" Man Pages ).&nbsp; If you've
+never read one before, the best way to start is by typing <strong>'man man</strong>' at
+the command line.<br>
+<br>
+Of course, while <strong>man</strong> pages are a vast improvement over the online
+documentation of most other OSes, they suffer from many failings: 
+
+</p><ul>
+  <li>some people don't like to read text on the screen </li>
+  <li>not very helpful unless you already know what to look for </li>
+  <li>not always accessible even when present </li>
+  <li>not always present, especially under Linux </li>
+  <li>frequently hard to read, as they try to be authoritative (and are therefore often too
+    technical for new users) </li>
+  <li>frequently out of date </li>
+</ul>
+
+<p>That said, they're still better and more comprehensive than the alternatives. We'll try
+to address the first three failings in this document. </p>
+
+<h2><a name="HTRMP">HOW TO READ MAN PAGES</a></h2>
+
+<p>Man pages are the standard documentation for every Unix; you're sure to come across a
+reference before too long of the form: </p>
+
+<p><font color="#0000FF">&lt;command&gt;(N) </font></p>
+
+<p>Where N is a number from 1-9, possibly followed by a letter.&nbsp; Here's an example
+we'll pick apart ( note: this example does not apply to all UNIX's but should be taken as
+general form )</p>
+
+<pre><font color="#0000FF">% man mkdir
+
+MKDIR(1)&nbsp;&nbsp;&nbsp; USER COMMANDS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MKDIR(1)
+
+NAME
+&nbsp;&nbsp; mkdir - make a directory
+
+SYNOPSIS
+&nbsp;&nbsp; mkdir [ -p ] dirname...
+
+DESCRIPTION
+&nbsp;&nbsp; mkdir creates directories. Standard entries,`.',for the
+&nbsp;&nbsp; directory itself, and `..' for its parent, are made automat-
+&nbsp;&nbsp; ically.
+
+&nbsp;&nbsp; The -p flag allows missing parent directories
+&nbsp;&nbsp; to be created as needed.
+
+&nbsp;&nbsp; With the exception of the set-gid bit, the
+&nbsp;&nbsp; current umask(2V) setting determines the mode in which
+&nbsp;&nbsp; directories are created. The new directory inherits the set-gid
+&nbsp;&nbsp; bit of the parent directory. Modes may be modified after
+&nbsp;&nbsp; creation by using chmod(1V).
+
+&nbsp;&nbsp; mkdir requires write permission in the parent directory.
+
+SEE ALSO
+&nbsp;&nbsp; chmod(1V), rm(1), mkdir(2v), umask(2V)</font>
+  </pre>
+
+<p>Here's the breakdown of our example. </p>
+
+<p><font color="#0000FF">MKDIR(1)&nbsp;&nbsp;&nbsp; USER COMMANDS
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MKDIR(1)</font>&nbsp; </p>
+
+<p>This means that the <font color="#0000FF"><strong>MKDIR</strong></font> command is
+documented under that name, in section <font color="#0000FF">(1)</font> given within
+parentheses. <br>
+<br>
+The section may be necessary in case there are multiple man pages for the same name. In
+the example above there are man pages called <strong>'mkdir'</strong> in both sections <font color="#0000FF"><strong>(1</strong>)</font> and <font color="#0000FF">(2v)</font>. If
+unspecified, <strong>man</strong> will give you the first manpage it finds. The <strong>-f</strong>
+option will show you all the available <strong>man</strong> pages for a given name.&nbsp;
+The same effect can be achieved by using the command <strong><font color="#000000">whatis</font></strong>
+instead of man<br>
+<br>
+<font color="#0000FF">%whatis mkdir</font></p>
+
+<p><strong>AND</strong></p>
+
+<p><font color="#0000FF">%man -f mkdir</font></p>
+
+<p>are synonymous.&nbsp; You should be able to get a description of each section (they
+vary from Unix to Unix) by doing </p>
+
+<p><font color="#0000FF">%man SECTION# intro</font></p>
+
+<p>Continuing with the breakdown of the <strong>mkdir</strong> man page.</p>
+
+<pre><font color="#0000FF">NAME
+&nbsp;&nbsp;&nbsp; mkdir - make a directory</font>    </pre>
+
+<p>The name of the command and a brief description.</p>
+
+<pre><font color="#0000FF">SYNOPSIS
+    &nbsp;&nbsp; mkdir [ -p ] dirname...</font>    </pre>
+
+<p>This discribes the various flags and the proper format the command requires.&nbsp; The
+flag in this instance is <strong>-p</strong> and the syntax requires a directory name to
+follow. ( note: most flags are optional )&nbsp;&nbsp; </p>
+
+<pre><font color="#0000FF">DESCRIPTION
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mkdir creates directories. Standard entries,`.', for the
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; directory itself, and `..' for its parent, are
+        made automat-ically...</font>    </pre>
+
+<p>A full fledged description of what the command will do including all of the flags.</p>
+
+<pre><font color="#0000FF">SEE ALSO
+&nbsp;&nbsp;&nbsp;&nbsp; chmod(1V), rm(1), mkdir(2v), umask(2V)</font>    </pre>
+
+<p>Suggestions of other commands that are somehow related.</p>
+
+<h2><a name="FMP">FINDING MAN PAGES</a></h2>
+
+<p><font color="#0000FF">apropos / man -k / man -kr<br>
+</font><br>
+One invocation of man that you'll likely come to be very familiar with is the <strong>man
+-k</strong> (keyword) option. This function is also available by<br>
+running <strong>apropos</strong> (1), i.e. <strong>man -k</strong> and <strong>apropos</strong>
+are equivalent. It lets you search the database of man page summaries to look for a
+keyword<br>
+that might be mentionned in them. </p>
+
+<p>Suppose we were looking for utilities to manipulate postscript documents.&nbsp; We
+would either do<br>
+<br>
+<font color="#0000FF">%man -k postscript</font></p>
+
+<p><strong>or</strong></p>
+
+<p><font color="#0000FF">%apropos postscript</font></p>
+
+<p>This produces a list, with summaries, of man pages which are likely to be related to
+your topic.&nbsp; If you were looking for something less specific, say programs associated
+with databases, you would probably want to use less and/or grep to filter and view the
+output.</p>
+
+<p><font color="#0000FF">%man -k postscript | less</font></p>
+
+<p>The output may produce many screens of data.</p>
+
+<p>Note, these commands search the database which in most cases must be built by the
+system administrators, a task which is sometimes forgotten.&nbsp; If you can't find what
+you are looking for and you believe it's there, try doing </p>
+
+<p><font color="#0000FF">%man -u man</font></p>
+
+<p>under Linux followed by your search, or</p>
+
+<p><font color="#0000FF">%man -F</font></p>
+
+<p>under Solaris.&nbsp; SunOS has no such option.&nbsp; Before trying this, make sure your
+MANPATH variable is set correctly.<br>
+<br>
+</p>
+
+<h2><a name="MP">MANPATH</a></h2>
+
+<p>There can be several hierarchies of man pages, depending on the system. On most of our
+systems, at least the following directories exist: /usr/man, /usr/local/man. In addition,
+there will be one for X programs (/usr/X11/man, /usr/local/X11/man, or /usr/openwin/man)
+and likely one for SOCS-specific man pages (/usr/socs/man). <br>
+<br>
+<strong>man</strong> searches the environment variable <strong>MANPATH</strong> (a
+colon-seperated list of directories like the PATH variable) for man pages.&nbsp; If you
+have hacked your script files or staff screwed up, the MANPATH could be wrong. The command
+<strong>whereis</strong> may be able to help here. <strong>whereis</strong> will locate
+the binary, source and manual page files for a command.&nbsp; For example: ( note: this
+specific example should not be taken as generic under Unix but only as a illustration of
+possible results )</p>
+<font color="#0000FF">
+
+</font><p><font color="#0000FF">%whereis man</font><br>
+<font color="#0000FF">man: /usr/ucb/man /usr/local/man /usr/man/man1/man.1
+/usr/man/man7/man.7 </font><br>
+</p>
+
+<h2><a name="MSFM">MANUAL SEARCH FOR MAN</a></h2>
+
+<p>Alternatively, you can just try the quick-and-dirty method of running <strong>grep</strong>
+(1) in the man directories you think might contain the command you are looking for; note
+that man pages are not stored in plain text format so the output may not be always
+readable. If you find the string you are looking for in a file located in MANDIR/man#, do </p>
+
+<p><font color="#0000FF">%man -M MANDIR # filename</font><br>
+<br>
+to view the corresponding man page.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="TNMPFX">THERE'S NO MAN PAGE FOR X!</a></h2>
+
+<p>Ok, you have tried the suggestions given above to locate man pages, and still have not
+had any luck. It's quite possible there is no man page corresponding to what you're
+looking for - either because the tool or functionality you're searching for isn't
+installed on the system or because it has no man page installed (the latter is far more
+common under Linux than elsewhere). <br>
+<br>
+Let's suppose that you're especially determined because you <strong>"know"</strong>
+that the command exists - it does something, just not quite what you want. Rather than get
+irate at the undocumented command, first make sure that it is actually a program that
+deserves a man page; here's an algorithmic approach to looking for a command's help file.<br>
+<br>
+If you're running <strong>ksh</strong> or <strong>bash</strong> (you'll know if you are),
+first do<br>
+<br>
+<font color="#0000FF">%type -t CMD</font><br>
+<br>
+For any other shell, do<br>
+<br>
+<font color="#0000FF">%which CMD</font><br>
+<br>
+This will tell you what kind of command you're dealing with. <br>
+<br>
+If it says CMD is a <strong>'builtin'</strong>, then do <b>'help CMD'</b> (bash only) or
+read your shell's manual page. ~(Note that tcsh - except under Linux - doesn't document
+all of its builtins since most are identical to csh's; I suggest looking in csh's man page
+first if you are somewhere other than Linux-land.)~<br>
+<br>
+If you're told that CMD is an 'alias', then do<br>
+<br>
+<font color="#0000FF">%alias CMD</font><br>
+<br>
+and repeat this procedure from the beginning with the first word that alias returns. If
+you are told that CMD is a function ( not in csh ), do <br>
+<br>
+<font color="#0000FF">%typeset -f CMD</font><br>
+<br>
+to see its definition; from there you are on your own.<br>
+<br>
+If you are given a path, then you may be justified in being irate. Or maybe the
+documentation is in another format; keep reading.</p>
+
+<h2><a name="PMP">PRINTING MAN PAGES</a></h2>
+
+<p>You have a couple of options here, depending on whether you mind wasting a full page of
+paper for each page of text. We recommend printing man pages at least half-size, as you're
+unlikely to return to them a month later.<br>
+<br>
+The simplest thing and most portable to do (though alternatives exist) is <br>
+<br>
+<font color="#0000FF">%man -t MANPAGE &gt; Manpage.ps </font></p>
+
+<p>( Note: only works unaided under Linux )</p>
+
+<p>This will produce a file called Manpage.ps in your current directory, which you can
+then use <strong>psnup</strong> (1) under SunOS to print 2- or 4- pages to a physical
+page. <br>
+<br>
+Unfortunately, while the <strong>-t</strong> parameter is itself portable to virtually all
+man implementations, the output is not.&nbsp; Under Linux, the above works fine. Under
+SunOS and Solaris, you have to do some preparation first: define the environment variable <strong>TCAT</strong>
+to be 'cat' and <strong>TROFF</strong> to be '/usr/local/bin/groff -man'. Furthermore, the
+<strong>GROFF_TYPESETTER</strong> variable must be set to 'ps'.<br>
+<br>
+If you have trouble getting psnup to work or don't feel like fooling around with it, you
+can always work with text instead. This isn't ~quite~ text, as it still has bolding and
+underlining and so forth, but <strong>a2ps(1)</strong> understands it, as does <strong>less(1)</strong>.<br>
+<br>
+<font color="#0000FF">%man MANPAGE|a2ps -m &gt;MANPAGE.ps</font><br>
+<br>
+You don't have to produce the ps file if you don't like, of course - if you're confident
+that it'll work the first time, replace the '&gt;MANPAGE.ps' with '|lpr -Pprinter-name'.
+Personally, I recommend previewing the output with <strong>ghostview</strong> (1)
+beforehand.<br>
+<font color="#0000FF">&nbsp;</font></p>
+
+<h2><a name="DYRWM">DO YOU REALLY WANT MAN?</a></h2>
+
+<p>Not all documentation is located in the manpages. The shells sometimes have online
+help, as do various other programs, especially graphical ones. </p>
+
+<p>Other major online help systems include:</p>
+
+<h3><font color="#000000">INFO</font></h3>
+
+<p><br>
+Info isn't really complex enough to deserve describing in detail. In brief, you can read
+info pages within <strong>emacs</strong> using <strong>'C-h i'</strong> ('info') or from
+the command line using the command </p>
+
+<p><font color="#0000FF">% info</font></p>
+
+<p>Online help and a tutorial on the info system are available from within both
+interfaces.&nbsp; Don't discount info pages; although they are used mainly by GNU
+software, this includes such hugely useful info pages as <strong>gdb</strong>, <strong>gcc</strong>,
+<strong>emacs</strong>, <strong>gawk</strong>, and <strong>make</strong>.&nbsp; <strong>Perl</strong>
+and bash also have info pages, though the information is available by other means as well
+in their cases.</p>
+
+<h3>/usr/doc</h3>
+
+<p>Only available under Linux, and often not terribly interesting, as a well-behaved
+package will provide documentation that can be integrated with the major help systems.
+&nbsp; Still, there is a lot there, and should definitely be considered if you cannot find
+what you are looking for elsewhere.&nbsp; Of particular interest are the docs for xv,
+debian, vim, wget, pqp, pine, libq++ and hsc.</p>
+
+<p>Files contained here will generally be of three types: HTML, postscript, or plan text (
+ASCII ).&nbsp; We will make the assumption that you know how to deal with these formats.
+&nbsp; Use the information in this document to find help and read up on <strong>lynx(1)</strong>,
+<strong>ghostview(1)</strong>, and<strong> less(1)</strong></p>
+
+<h3>/use/local/pkgs, /usr/local/doc, /usr/share, /usr/local/share</h3>
+
+<p>These are more common to the servers, though they may exist on Linux machines as well.
+&nbsp; Software packages are commonly installed into </p>
+
+<p><strong>/usr/local/pkgs/PKGNAME-VER#</strong></p>
+
+<p>and a link to that directory is created as</p>
+
+<p><strong>/usr/local/pkgs/PKGNAME</strong></p>
+
+<p>Sometimes there is documentation to be found there.&nbsp; Documentation which is
+located in <strong>/usr/doc/PKGNAME</strong> on Linux will be in these directories on the
+servers, though they may get linked or copied into the other directories mentionned above
+( <strong>/usr/local/doc</strong>, <strong>/usr/share</strong>, <strong>/usr/local/share</strong>
+)</p>
+
+<h3>Perldoc</h3>
+
+<p>Much Perl documentation is embedded with the source modules themselves.&nbsp; To access
+it, you can usually do</p>
+
+<p><strong>%perldoc MODULENAME</strong></p>
+
+<p>and a man page will be generated for you.</p>
+
+<h3>Source code and Include files</h3>
+
+<p>While it should probably be a last resort, the source <strong>IS</strong> always the
+most current and sometimes the only documentation available for a particular package.
+&nbsp; This is usually not installed on the system unless it cannot be compiled:&nbsp; For
+example, Perl scripts and Lisp source are both interpreted, and so the program is the
+source. Whether or not the program you are trying to learn more about is written in a
+compiled or interpreted language./usr/include and /usr/local/include may have very useful
+files to help. </p>
+
+
+</body></html>

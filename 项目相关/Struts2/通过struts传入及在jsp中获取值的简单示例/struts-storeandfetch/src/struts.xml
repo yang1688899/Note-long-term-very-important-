@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	
+	<constant name="struts.devMode" value="true" />
+	
+	<package name="user" namespace="/user" extends="struts-default">
+	
+		<action name="select" class="com.yang.strutsstoreandfetch.controller.UserAction" method="select">
+			<result name="success" type="dispatcher">
+				<param name="location">/WEB-INF/jsp/result.jsp</param>
+			</result>
+		</action>
+		
+		<action name="storeMap" class="com.yang.strutsstoreandfetch.controller.UserAction" method="storeMap">
+			<result name="success" type="chain">
+				<param name="actionName">select</param>
+			</result>
+		</action>
+		
+		<action name="storeList" class="com.yang.strutsstoreandfetch.controller.UserAction" method="storeList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">select</param>
+			</result>
+		</action>
+		
+	</package>
+</struts>

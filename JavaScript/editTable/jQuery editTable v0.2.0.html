@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)https://codeb.it/edittable/ -->
+<html class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="it-IT" itemscope="" itemtype="http://schema.org/Blog" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="https://codeb.it/wp/xmlrpc.php">
+
+	<title>Codebit | Sviluppo Web in pillole » jQuery editTable v0.2.0</title><meta name="description" content="jQuery editTable is a very small jQuery Plugin (~1Kb gzipped) that fill the gap left by the missing of a default input field for data…"><link rel="dns-prefetch" href="https://yandex.st/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Codebit | Sviluppo Web in pillole » Feed" href="https://codeb.it/feed/">
+<link rel="alternate" type="application/rss+xml" title="Codebit | Sviluppo Web in pillole » Feed dei commenti" href="https://codeb.it/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Codebit | Sviluppo Web in pillole » jQuery editTable v0.2.0 Feed dei commenti" href="https://codeb.it/edittable/feed/">
+		<script type="text/javascript" async="" src="./jQuery editTable v0.2.0_files/ga.js.下载"></script><script id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/codeb.it\/wp\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.6.1"}};
+			!function(a,b,c){function d(a){var c,d,e,f,g,h=b.createElement("canvas"),i=h.getContext&&h.getContext("2d"),j=String.fromCharCode;if(!i||!i.fillText)return!1;switch(i.textBaseline="top",i.font="600 32px Arial",a){case"flag":return i.fillText(j(55356,56806,55356,56826),0,0),!(h.toDataURL().length<3e3)&&(i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,65039,8205,55356,57096),0,0),c=h.toDataURL(),i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,55356,57096),0,0),d=h.toDataURL(),c!==d);case"diversity":return i.fillText(j(55356,57221),0,0),e=i.getImageData(16,16,1,1).data,f=e[0]+","+e[1]+","+e[2]+","+e[3],i.fillText(j(55356,57221,55356,57343),0,0),e=i.getImageData(16,16,1,1).data,g=e[0]+","+e[1]+","+e[2]+","+e[3],f!==g;case"simple":return i.fillText(j(55357,56835),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode8":return i.fillText(j(55356,57135),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode9":return i.fillText(j(55358,56631),0,0),0!==i.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity","unicode9"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./jQuery editTable v0.2.0_files/wp-emoji-release.min.js.下载" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="codebit2-foundation-css" href="./jQuery editTable v0.2.0_files/foundation.css" type="text/css" media="all">
+<link rel="stylesheet" id="codebit2-octicons-css" href="./jQuery editTable v0.2.0_files/octicons.css" type="text/css" media="all">
+<link rel="stylesheet" id="codebit2-highlight-css" href="./jQuery editTable v0.2.0_files/github.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="codebit2-style-css" href="./jQuery editTable v0.2.0_files/style.css" type="text/css" media="all">
+<script type="text/javascript" src="./jQuery editTable v0.2.0_files/modernizr.js.下载"></script>
+<script type="text/javascript" src="./jQuery editTable v0.2.0_files/jquery.js.下载"></script>
+<script type="text/javascript" src="./jQuery editTable v0.2.0_files/jquery-migrate.min.js.下载"></script>
+<link rel="https://api.w.org/" href="https://codeb.it/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://codeb.it/wp/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://codeb.it/wp/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.6.1">
+<link rel="canonical" href="https://codeb.it/edittable/">
+<link rel="shortlink" href="https://codeb.it/?p=1196">
+<link rel="alternate" type="application/json+oembed" href="https://codeb.it/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcodeb.it%2Fedittable%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://codeb.it/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcodeb.it%2Fedittable%2F&amp;format=xml">
+<script type="text/javascript" src="./jQuery editTable v0.2.0_files/jquery-ui.js.下载"></script><script type="text/javascript" src="./jQuery editTable v0.2.0_files/jquery.edittable.min.js.下载"></script><script>jQuery(document).ready(function ($) {
+	
+	// Initialize table example 0
+	$('#source').editTable();
+	
+	// Initialize table example 1
+    var eTable = $('#edittable').editTable({
+    	data : [
+    		["Click on the plus symbols on the top and right to add cols or rows"]
+    	]
+    });
+    
+    // Load json data trough an ajax call
+    $('.loadjson').click(function () {
+    	var _this = $(this),text = $(this).text();
+    	$(this).text('Loading...');
+        setTimeout(function () {
+            eTable.loadJsonData('[["Carbon","Hydrogen","Nitrogen","Oxygen"],[10,15,1,0],[8,11,1,2],[10,15,1,1],[12,17,1,1],[14,19,1,2]]');
+            _this.text(text);
+        }, 1000);
+    	return false;
+    });
+    
+    // Send JSON data trough an ajax call
+    $('.sendjson').click(function () {
+        console.log(eTable.getJsonData());
+    	return false;
+    });
+    
+    // Reset table data
+    $('.reset').click(function () {
+    	eTable.reset();
+    	return false;
+    });
+    
+    // Initialize table example 2
+    $("#edittable2").editTable({
+    	data : [
+    		["01/01/2013","01/30/2013","50,00 €"],
+    		["02/01/2013","02/28/2013","50,00 €"]
+    	],
+    	headerCols: [
+    		'From',
+    		'To',
+    		'Price'
+    	],
+    	first_row: false,
+    	maxRows: 3
+    });
+    
+    // Example of jQuery UI 
+	$("#edittable2").on("focusin", "td:nth-child(1) input, td:nth-child(2) input", function(){
+	    $(this).datepicker();
+	});
+
+	// Example 4
+	// Custom fields & validation
+    var mynewtable = $('#examplex').editTable({
+        field_templates: {
+            'checkbox' : {
+                html: '<input type="checkbox"/>',
+                getValue: function (input) {
+                    return $(input).is(':checked');
+                },
+                setValue: function (input, value) {
+                    if ( value ){
+                        return $(input).attr('checked', true);
+                    }
+                    return $(input).removeAttr('checked');
+                }
+            },
+            'textarea' : {
+                html: '<textarea/>',
+                getValue: function (input) {
+                    return $(input).val();
+                },
+                setValue: function (input, value) {
+                    return $(input).text(value);
+                }
+            },
+            'select' : {
+                html: '<select><option value="">None</option><option>All</option></select>',
+                getValue: function (input) {
+                    return $(input).val();
+                },
+                setValue: function (input, value) {
+                    var select = $(input);
+                    select.find('option').filter(function() {
+                        return $(this).val() == value; 
+                    }).attr('selected', true);
+                    return select;
+                }
+            }
+        },
+        row_template: ['checkbox', 'text', 'text', 'textarea', 'select'],
+        headerCols: ['Yes/No','Date','Value','Description', 'Which?'],
+        first_row: false,
+        data: [
+            [false,"01/30/2013","50,00 €","Lorem ipsum...\n\nDonec in dui nisl. Nam ac libero eget magna iaculis faucibus eu non arcu. Proin sed diam ut nisl scelerisque fermentum."],
+            [true,"02/28/2013","50,00 €",'This is a <textarea>','All']
+        ],
+        validate_field: function (col_id, value, col_type, $element) {
+            if ( col_type === 'checkbox' ) {
+                $element.parent('td').css({'background-color':'#fff'});
+                if ( value === false ){
+                    $element.parent('td').css({'background-color':'#DB4A39'});
+                    return false;
+                }
+            }
+            return true;
+        },
+        tableClass: 'inputtable custom'
+    });
+
+    $('#examplexconsole').click(function(e) {
+        console.log(mynewtable.getData());
+        if ( !mynewtable.isValidated() ){
+            alert('Not validated');
+        }
+        e.preventDefault();
+    });
+	
+	$('.showcode').click(function () {
+		$($(this).attr('href')).slideToggle(300);
+		return false;
+	});
+	
+});</script><link rel="stylesheet" href="./jQuery editTable v0.2.0_files/jquery-ui.css"><link rel="stylesheet" href="./jQuery editTable v0.2.0_files/jquery.edittable.min.css">
+	<meta name="google-site-verification" content="aBwTcU10IrAjGXfz58nMc8w_AQKxv2kYbCiLGp4CZFw">
+	<meta name="msvalidate.01" content="B410BEC7C32412AF349B9AACD0BA43CE">
+
+
+<meta class="foundation-data-attribute-namespace"><meta class="foundation-mq-xxlarge"><meta class="foundation-mq-xlarge"><meta class="foundation-mq-large"><meta class="foundation-mq-medium"><meta class="foundation-mq-small"><style></style><meta class="foundation-mq-topbar"></head>
+<body ontouchstart="" class="page page-id-1196 page-template-default">
+
+	<header class="sticky">
+		<nav class="top-bar" data-topbar="">
+			<ul class="title-area">
+				<li class="name">
+					<h1>
+						<a href="https://codeb.it/">Codeb.it <span class="octicon octicon-code"></span> Sviluppo Web</a>
+					</h1>
+				</li>
+				<li class="toggle-topbar menu-icon">
+					<a href="https://codeb.it/edittable/#">
+						<span>Menu</span>
+					</a>
+				</li>
+			</ul>
+			
+		<section class="top-bar-section">
+				<!-- Right Nav Section -->
+				<div class="menu-main-container"><ul id="menu-main" class="right"><li class=""><a href="https://codeb.it/"><span class="octicon octicon-home"></span> Home</a></li><li id="menu-item-1276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1276"><a href="https://codeb.it/about/">About</a></li>
+<li id="menu-item-1277" class="menu-item menu-item-type-custom menu-item-object-custom has-dropdown menu-item-1277 not-click"><a href="https://codeb.it/edittable/#">Categorie</a>
+<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+	<li id="menu-item-1287" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1287"><a href="https://codeb.it/category/api/">API</a></li>
+	<li id="menu-item-1284" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1284"><a href="https://codeb.it/category/css/">CSS</a></li>
+	<li id="menu-item-1285" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1285"><a href="https://codeb.it/category/javascript/">JavaScript</a></li>
+	<li id="menu-item-1286" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1286"><a href="https://codeb.it/category/javascript/jquery/">jQuery</a></li>
+	<li id="menu-item-1658" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1658"><a href="https://codeb.it/category/laravel/">Laravel</a></li>
+	<li id="menu-item-1283" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1283"><a href="https://codeb.it/category/mac-os/">Mac Os</a></li>
+	<li id="menu-item-1282" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1282"><a href="https://codeb.it/category/php/">PHP</a></li>
+	<li id="menu-item-1288" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1288"><a href="https://codeb.it/category/portfolio/">Portfolio</a></li>
+	<li id="menu-item-1290" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1290"><a href="https://codeb.it/category/seo/">SEO</a></li>
+	<li id="menu-item-1289" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1289"><a href="https://codeb.it/category/server/">Server</a></li>
+	<li id="menu-item-1281" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1281"><a href="https://codeb.it/category/wordpress/">WordPress</a></li>
+</ul>
+</li>
+<li id="menu-item-1278" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent has-dropdown menu-item-1278 not-click"><a href="https://codeb.it/edittable/#">Downloads</a>
+<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+	<li id="menu-item-1298" class="menu-item menu-item-type-post_type menu-item-object-page active page_item page-item-1196 current_page_item menu-item-1298"><a href="https://codeb.it/edittable/">jQuery editTable v0.2.0</a></li>
+	<li id="menu-item-1299" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1299"><a href="https://codeb.it/restable/">jQuery ReStable v0.1.2</a></li>
+	<li id="menu-item-1300" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1300"><a href="https://codeb.it/resmenu/">jQuery ReSmenu v0.1.1</a></li>
+	<li id="menu-item-1302" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1302"><a href="http://codeb.it/fonticonpicker">jQuery fontIconPicker v2.0.0</a></li>
+	<li id="menu-item-1301" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1301"><a href="http://codeb.it/nuwk">Nuwk!</a></li>
+	<li id="menu-item-1379" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1379"><a href="http://codeb.it/wpdevtool-plugin-per-lo-sviluppo-wordpress/">WpDevTool</a></li>
+	<li id="menu-item-1663" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1663"><a href="http://codeb.it/laravel-rooles-un-semplice-pacchetto-per-la-gestione-di-ruoli-e-permessi/">Laravel Rooles</a></li>
+</ul>
+</li>
+<li id="menu-item-1441" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1441"><a href="https://codeb.it/category/tools/">Tools</a></li>
+<li id="menu-item-1280" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1280"><a href="https://codeb.it/crediti-e-ringraziamenti/">Crediti</a></li>
+<li><a href="http://www.github.com/micc83" class="right"><span class="octicon octicon-logo-github"></span></a></li></ul></div>			</section></nav>
+	</header>
+
+
+	<div class="row main">
+      	<main class="small-12 medium-8 columns">
+
+			
+				
+<article id="post-1196" class="mybox clearfix post-1196 page type-page status-publish hentry" itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
+	<header class="entry-header">
+
+		
+				<!-- Comments -->
+		<a href="https://codeb.it/edittable/#comments">
+			<span itemprop="interactionCount" content="UserComments:10" class="alert round label right">
+				10				<span class="octicon octicon-comment-discussion"></span>
+			</span>
+		</a>
+				
+		<h2 class="entry-title" itemprop="name"><a href="https://codeb.it/edittable/" rel="bookmark prefetch" itemprop="url">jQuery editTable v0.2.0</a></h2>
+	</header><!-- .entry-header -->
+
+	
+	<!-- Entry content -->
+	<div class="entry-content" itemprop="description">
+					<p>jQuery editTable is a very small jQuery Plugin (~1Kb gzipped) that fill the gap left by the missing of a default <strong>input field for data tables</strong>. jQuery editTable can be used both in <kbd>ajax</kbd> and/or <kbd>HTTP POST</kbd> contest and let you preset the title and number of columns or just let complete freedom to the user. You can even append custom behaviors to single column cells (ex. <strong>jQuery UI Datepicker</strong>). The only limit is your imagination! <img draggable="false" class="emoji" alt="🙂" src="./jQuery editTable v0.2.0_files/1f642.svg"></p>
+<p><a class="button" href="https://github.com/micc83/editTable"><span class="octicon octicon-mark-github"></span> Download it on GitHub</a></p>
+<p>To use it you just have to include jQuery and a copy of the plugin in your head or footer:</p>
+<pre class="prettyprint">&lt;script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="jquery.edittable.min.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="jquery.edittable.min.css"&gt;
+</pre>
+<p>Now you can trigger editTable on any textarea or block element (ex. <kbd>div</kbd>, <kbd>article</kbd>, <kbd>section</kbd> …). In case you trigger it on a textarea, its content will be used as JSON source for the table. If the textarea is inside a form, on submit, its content will be updated with the new JSON data. Otherwise, if you trigger it on a block element the table will be appended to the element itself (ajax).</p>
+<pre class="prettyprint">var mytable = $('#edittable').editTable({
+    data: [['']],           // Fill the table with a js array (this is overridden by the textarea content if not empty)
+    tableClass: 'inputtable',   // Table class, for styling
+    jsonData: false,        // Fill the table with json data (this will override data property)
+    headerCols: false,      // Fix columns number and names (array of column names)
+    maxRows: 999,           // Max number of rows which can be added
+    first_row: true,        // First row should be highlighted?
+    row_template: false,    // An array of column types set in field_templates
+    field_templates: false, // An array of custom field type objects
+
+    // Validate fields
+    validate_field: function (col_id, value, col_type, $element) {
+        return true;
+    }
+});
+</pre>
+<p>There are of course many methods which can be used on the created table. Let’s see…</p>
+<pre class="prettyprint">mytable.loadData(dataArray);    // Fill the table with js data
+mytable.loadJsonData(jsonData); // Fill the table with JSON data
+mytable.getData();              // Get a js array of the table data
+mytable.getJsonData();          // Get JSON from the table data
+mytable.reset();                // Reset the table to the initial set of data
+mytable.isValidated()           // Check if the table pass validation set with validate_field
+</pre>
+<p>To define a <strong>custom field type</strong> object (<a href="https://codeb.it/edittable/#e4">click here for a full example</a>):</p>
+<pre class="prettyprint">[
+    'checkbox' : {
+        
+        html: '&lt;input type="checkbox"/&gt;',     // Input type html
+
+        // How to get the value from the custom input
+        getValue: function (input) {
+            return $(input).is(':checked');
+        },
+
+        // How to set the value of the custom input
+        setValue: function (input, value) {
+            if ( value ){
+                return $(input).attr('checked', true);
+            }
+            return $(input).removeAttr('checked');
+        }
+    }
+]
+</pre>
+<p>That’s it, now give a look to the following examples to understand how it works.</p>
+<hr>
+<h3>Example 1 – Basics</h3>
+<p>In the first example we’ll implement the simplest HTML POST use of editTable. If you are looking to use editTable on ajax contest instead just give a look to the next example.</p>
+<form action="https://codeb.it/edittable/#output" method="post"><textarea id="source" style="display: none;" name="myField">[[“Period”,”Full Board”,”Half Board”,”Bed &amp; Breakfast”],[“01\/01 – 31\/01″,”50.00 \u20ac”,”40.00 \u20ac”,”30.00 \u20ac”],[“01\/02 – 28\/02″,”55.00 \u20ac”,”45.00 \u20ac”,”35.00 \u20ac”],[“01\/03 – 31\/03″,”60.00 \u20ac”,”50.00 \u20ac”,”40.00 \u20ac”],[“01\/04 – 30\/04″,”55.00 \u20ac”,”45.00 \u20ac”,”35.00 \u20ac”],[“01\/05 – 31\/05″,”50.00 \u20ac”,”40.00 \u20ac”,”30.00 \u20ac”]]</textarea><table class="inputtable wh"><thead><tr><th><a class="addcol icon-button" href="https://codeb.it/edittable/#">+</a> <a class="delcol icon-button disabled" href="https://codeb.it/edittable/#">-</a></th><th></th></tr></thead><tbody><tr><td><input type="text" value=""></td><td><a class="addrow icon-button" href="https://codeb.it/edittable/#">+</a> <a class="delrow icon-button disabled" href="https://codeb.it/edittable/#">-</a></td></tr></tbody></table><br>
+<dl class="accordion" data-accordion=""><br>
+<dd class="accordion-navigation"><a href="https://codeb.it/edittable/#accordion_2"><span class="octicon octicon-gist"></span> index.php</a><div id="accordion_2" class="content"><p></p>
+<pre class="prettyprint">&lt;form method="post" action="output.php"&gt;
+	&lt;textarea id="source" style="display:none" name="myField" &gt;&lt;?php 
+	echo json_encode(array(
+		array('Period','Full Board', 'Half Board', 'Bed &amp; Breakfast'),
+		array('01/01 - 30/01','50.00 €', '40.00 €', '30.00 €'),
+		array('01/02 - 28/02','55.00 €', '45.00 €', '35.00 €'),
+		array('01/03 - 31/03','60.00 €', '50.00 €', '40.00 €'),
+		array('01/04 - 30/04','55.00 €', '45.00 €', '35.00 €'),
+		array('01/05 - 31/05','50.00 €', '40.00 €', '30.00 €')
+	)); 
+	?&gt;&lt;/textarea&gt;
+	&lt;button type="submit"&gt;Send data&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+<p></p></div></dd><br>
+<dd class="accordion-navigation"><a href="https://codeb.it/edittable/#accordion_3"><span class="octicon octicon-gist"></span> script.js</a><div id="accordion_3" class="content"><p></p>
+<pre>$(document).ready(function () {
+	$('#source').editTable();
+});
+</pre>
+<p></p></div></dd><br>
+<dd class="accordion-navigation"><a href="https://codeb.it/edittable/#accordion_4"><span class="octicon octicon-gist"></span> output.php</a><div id="accordion_4" class="content"><p></p>
+<pre>&lt;?php var_dump( json_decode( stripslashes( $_POST['myField'] ) ) ); ?&gt;</pre>
+<p></p></div></dd><br>
+<dd class="accordion-navigation"><a href="https://codeb.it/edittable/#accordion_5"><span class="octicon octicon-gist"></span> Post Output</a><div id="accordion_5" class="content"><p></p>
+<pre>array(6) {
+  [0]=&gt;
+  array(4) {
+    [0]=&gt;
+    string(6) "Period"
+    [1]=&gt;
+    string(10) "Full Board"
+    [2]=&gt;
+    string(10) "Half Board"
+    [3]=&gt;
+    string(15) "Bed &amp; Breakfast"
+  }
+  [1]=&gt;
+  array(4) {
+    [0]=&gt;
+    string(13) "01/01 - 31/01" ...
+</pre>
+<p></p></div></dd><br>
+</dl><p></p>
+<hr>
+<h3>Example 2 – AJAX with editable columns:</h3>
+<div id="edittable"><table class="inputtable wh"><thead><tr><th><a class="addcol icon-button" href="https://codeb.it/edittable/#">+</a> <a class="delcol icon-button disabled" href="https://codeb.it/edittable/#">-</a></th><th></th></tr></thead><tbody><tr><td><input type="text" value="Click on the plus symbols on the top and right to add cols or rows"></td><td><a class="addrow icon-button" href="https://codeb.it/edittable/#">+</a> <a class="delrow icon-button disabled" href="https://codeb.it/edittable/#">-</a></td></tr></tbody></table></div>
+<p><a class="sendjson button" href="https://codeb.it/edittable/#">Ajax send JSON (check your console)</a> <a class="loadjson button secondary" href="https://codeb.it/edittable/#">Ajax load JSON</a> <a class="reset button alert" href="https://codeb.it/edittable/#">Reset Table</a></p>
+<dl class="accordion" data-accordion=""><br>
+<dd class="accordion-navigation"><a href="https://codeb.it/edittable/#accordion_6"><span class="octicon octicon-gist"></span> index.htm</a><div id="accordion_6" class="content"><p></p>
+<pre class="prettyprint">&lt;div id="edittable"&gt;&lt;/div&gt;
+&lt;a href="#" class="sendjson button"&gt;Send JSON (check your console)&lt;/a&gt; 
+&lt;a href="#" class="loadjson button"&gt;Load JSON from textarea&lt;/a&gt; 
+&lt;a href="#" class="reset button"&gt;Reset Table&lt;/a&gt;
+</pre>
+<p></p></div></dd><br>
+<dd class="accordion-navigation"><a href="https://codeb.it/edittable/#accordion_7"><span class="octicon octicon-gist"></span> script.js</a><div id="accordion_7" class="content"><p></p>
+<pre class="prettyprint">// Initialize table example 1
+var eTable = $('#edittable').editTable({
+	data: [
+		["Click on the plus symbols on the top and right to add cols or rows"]
+	]
+});
+
+// Load json data trough an ajax call
+$('.loadjson').click(function () {
+	var _this = $(this),text = $(this).text();
+	$(this).text('Loading...');
+	$.ajax({
+		url: 	'output.php',
+		type: 	'POST',
+		data: 	{
+			ajax: true
+		},
+		complete: function (result) {
+			_this.text(text);
+			eTable.loadJsonData(result.responseText);
+		}
+	});
+	return false;
+});
+
+// Reset table data
+$('.reset').click(function () {
+	eTable.reset();
+	return false;
+});
+
+// Send JSON data trough an ajax call
+$('.sendjson').click(function () {
+	$.ajax({
+		url: 	'output.php',
+		type: 	'POST',
+		data: 	{
+			ajax: true,
+			data: eTable.getJsonData()
+		},
+		complete: function (result) {
+			console.log(JSON.parse(result.responseText));
+		}
+	});
+	return false;
+});
+</pre>
+<p></p></div></dd><br>
+<dd class="accordion-navigation"><a href="https://codeb.it/edittable/#accordion_8"><span class="octicon octicon-gist"></span> output.php</a><div id="accordion_8" class="content"><p></p>
+<pre class="prettyprint">&lt;?php 
+if ( isset( $_POST['ajax'] ) ){
+	header( 'Content-Type: application/json' );
+	if ( isset( $_REQUEST['data'] ) ){
+		$data = json_decode( stripslashes( $_REQUEST['data'] ) );
+	} else {
+		$data = array(
+			array('Carbon','Hydrogen','Nitrogen','Oxygen'),
+			array(10,15,1,0),
+			array(8,11,1,2),
+			array(10,15,1,1),
+			array(12,17,1,1),
+			array(14,19,1,2)
+		);
+	}
+	echo json_encode( $data );
+	die();
+}
+</pre>
+<p></p></div></dd><br>
+</dl>
+<hr>
+<h3>Example 3 – Fixed columns, Datepicker, Rows limit:</h3>
+<div id="edittable2"><table class="inputtable"><thead><tr><th>From</th><th>To</th><th>Price</th><th></th></tr></thead><tbody><tr><td><input type="text" value="01/01/2013"></td><td><input type="text" value="01/30/2013"></td><td><input type="text" value="50,00 €"></td><td><a class="addrow icon-button" href="https://codeb.it/edittable/#">+</a> <a class="delrow icon-button" href="https://codeb.it/edittable/#">-</a></td></tr><tr><td><input type="text" value="02/01/2013"></td><td><input type="text" value="02/28/2013"></td><td><input type="text" value="50,00 €"></td><td><a class="addrow icon-button" href="https://codeb.it/edittable/#">+</a> <a class="delrow icon-button" href="https://codeb.it/edittable/#">-</a></td></tr></tbody></table></div>
+<dl class="accordion" data-accordion=""><br>
+<dd class="accordion-navigation"><a href="https://codeb.it/edittable/#accordion_9"><span class="octicon octicon-gist"></span> index.htm</a><div id="accordion_9" class="content"><p></p>
+<pre class="prettyprint">&lt;div id="edittable2"&gt;&lt;/div&gt;</pre>
+<p></p></div></dd><br>
+<dd class="accordion-navigation"><a href="https://codeb.it/edittable/#accordion_10"><span class="octicon octicon-gist"></span> script.js</a><div id="accordion_10" class="content"><p></p>
+<pre class="prettyprint">// Initialize table example 3
+$("#edittable2").editTable({
+	data: [
+		["01/01/2013","01/30/2013","50,00 €"],
+		["02/01/2013","02/28/2013","50,00 €"]
+	],
+	headerCols: [
+		'From',
+		'To',
+		'Price'
+	],
+	maxRows: 3
+});
+
+// Example of jQuery UI datePicker
+$("#edittable2").on("focusin", "td:nth-child(1) input, td:nth-child(2) input", function(){
+    $(this).datepicker();
+});</pre>
+<p></p></div></dd><br>
+</dl>
+<hr>
+<h3 id="e4">Example 4 – Custom field types &amp; validation</h3>
+</form>
+<form action="https://codeb.it/edittable/#output" method="post"><textarea id="examplex" style="display: none;" name="myField"></textarea><table class="inputtable custom"><thead><tr><th>Yes/No</th><th>Date</th><th>Value</th><th>Description</th><th>Which?</th><th></th></tr></thead><tbody><tr><td><input type="checkbox"></td><td><input type="text" value="01/30/2013"></td><td><input type="text" value="50,00 €"></td><td><textarea>Lorem ipsum...
+
+Donec in dui nisl. Nam ac libero eget magna iaculis faucibus eu non arcu. Proin sed diam ut nisl scelerisque fermentum.</textarea></td><td><select><option value="" selected="selected">None</option><option>All</option></select></td><td><a class="addrow icon-button" href="https://codeb.it/edittable/#">+</a> <a class="delrow icon-button" href="https://codeb.it/edittable/#">-</a></td></tr><tr><td><input type="checkbox" checked="checked"></td><td><input type="text" value="02/28/2013"></td><td><input type="text" value="50,00 €"></td><td><textarea>This is a &lt;textarea&gt;</textarea></td><td><select><option value="">None</option><option selected="selected">All</option></select></td><td><a class="addrow icon-button" href="https://codeb.it/edittable/#">+</a> <a class="delrow icon-button" href="https://codeb.it/edittable/#">-</a></td></tr></tbody></table><br>
+<a id="examplexconsole" class="button" href="https://codeb.it/edittable/#">Validate table</a></form>
+<form action="https://codeb.it/edittable/#output" method="post"></form>
+<dl class="accordion" data-accordion=""><dd class="accordion-navigation"><a href="https://codeb.it/edittable/#accordion_11"><span class="octicon octicon-gist"></span> script.js</a><div id="accordion_11" class="content"><p></p>
+<pre class="prettyprint">/**
+ * Example 4 - Custom field types &amp; validation
+ */
+var mynewtable = $('#examplex').editTable({
+    field_templates: {
+        'checkbox' : {
+            html: '&lt;input type="checkbox"/&gt;',
+            getValue: function (input) {
+                return $(input).is(':checked');
+            },
+            setValue: function (input, value) {
+                if ( value ){
+                    return $(input).attr('checked', true);
+                }
+                return $(input).removeAttr('checked');
+            }
+        },
+        'textarea' : {
+            html: '&lt;textarea/&gt;',
+            getValue: function (input) {
+                return $(input).val();
+            },
+            setValue: function (input, value) {
+                return $(input).text(value);
+            }
+        },
+        'select' : {
+            html: '&lt;select&gt;&lt;option value=""&gt;None&lt;/option&gt;&lt;option&gt;All&lt;/option&gt;&lt;/select&gt;',
+            getValue: function (input) {
+                return $(input).val();
+            },
+            setValue: function (input, value) {
+                var select = $(input);
+                select.find('option').filter(function() {
+                    return $(this).val() == value; 
+                }).attr('selected', true);
+                return select;
+            }
+        }
+    },
+    row_template: ['checkbox', 'text', 'text', 'textarea', 'select'],
+    headerCols: ['Yes/No','Date','Value','Description', 'Which?'],
+    first_row: false,
+    data: [
+        [false,"01/30/2013","50,00 €","Lorem ipsum...\n\nDonec in dui nisl. Nam ac libero eget magna iaculis faucibus eu non arcu. Proin sed diam ut nisl scelerisque fermentum."],
+        [true,"02/28/2013","50,00 €",'This is a &lt;textarea&gt;','All']
+    ],
+
+    // Checkbox validation
+    validate_field: function (col_id, value, col_type, $element) {
+        if ( col_type === 'checkbox' ) {
+            $element.parent('td').animate({'background-color':'#fff'});
+            if ( value === false ){
+                $element.parent('td').animate({'background-color':'#DB4A39'});
+                return false;
+            }
+        }
+        return true;
+    },
+    tableClass: 'inputtable custom'
+});
+
+// Trigger event
+$('#examplexconsole').click(function(e) {
+
+    // Get data
+    console.log(mynewtable.getData());
+
+    // Check if data are valid
+    if ( !mynewtable.isValidated() ){
+        alert('Not validated');
+    }
+
+    e.preventDefault();
+});
+</pre>
+<p></p></div></dd></dl>
+		
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<p><small><span class="label secondary"><span class="octicon octicon-calendar"></span> <time class="entry-date published" itemprop="datePublished" datetime="2013-12-17T14:37:05+00:00">17 dicembre 2013</time></span> <a class="url fn n" rel="author" itemprop="author" href="https://codeb.it/wp/about"><span class="label success"><span class="octicon octicon-person"></span> Alessandro Benoit</span></a> <span itemprop="articleSection"></span></small></p>	</footer><!-- .entry-footer -->
+
+</article><!-- #post-## -->
+				
+<div id="comments" class="comments-area mybox">
+
+	
+		
+		<ol class="comment-list">
+					<li id="comment-353" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://codeb.it/jquery-edittable-inserisci-dati-tabulari-nei-tuoi-form/" rel="external nofollow" class="url">jQuery editTable – Inserisci dati tabulari nei tuoi form</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-2708" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.htmluse.com/jquery-edittable-plugin/" rel="external nofollow" class="url">jQuery editTable Plugin | Html Use</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-7944" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.jsplugins.net/jquery-edittable-plugin/" rel="external nofollow" class="url">jQuery editTable Plugin | Js Plugins</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-12290" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.htmluse.com/jquery-edittable/" rel="external nofollow" class="url">jQuery editTable | Html Use</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-46612" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://jquerypluginplus.com/jquery-edittable/" rel="external nofollow" class="url">jQuery editTable</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-47096" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://mixwebnews.com/jquery-edittable/" rel="external nofollow" class="url">jQuery editTable | Mix Web News</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-84339" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://newupdate.co/jquery-edittable/" rel="external nofollow" class="url">jQuery editTable</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-84727" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://webdamn.com/best-jquery-inline-edit-plugins/" rel="external nofollow" class="url">Best jQuery Inline Edit Plugins | Web Damn</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-85641" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://pixellib.com/jquery-edittable-plugin/" rel="external nofollow" class="url">jQuery editTable Plugin - Pixel Library</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-85815" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.omegaweb.com/20-useful-jquery-tables-plugins-with-demos/" rel="external nofollow" class="url">20 Useful jQuery Tables Plugins with Demos</a> 			</div>
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Lascia un commento <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://codeb.it/edittable/#respond" style="display:none;" class="button tiny alert"><span class="octicon octicon-x"></span></a></small></h3>				<form action="https://codeb.it/wp/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+					<p class="comment-notes"><span id="email-notes">Il tuo indirizzo email non sarà pubblicato.</span> I campi obbligatori sono contrassegnati <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Commento</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Nome <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required="true" required="required"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required="true" required="required"></p>
+<p class="comment-form-url"><label for="url">Sito web</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200"></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit button tiny" value="Commento all&#39;articolo"> <input type="hidden" name="comment_post_ID" value="1196" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="3e26d747f0"></p><p style="display: none;"></p>				<input type="hidden" id="ak_js" name="ak_js" value="1480651177955"></form>
+					</div><!-- #respond -->
+		
+</div><!-- #comments -->
+
+			
+		</main><!-- #main -->
+
+		<aside class="small-12 medium-4 columns">
+			<div id="secondary" class="widget-area" role="complementary">
+			<form action="https://codeb.it/wp" type="get" class="searchform">
+			<div class="row collapse">
+				<div class="large-8 small-9 columns">
+					<input type="text" name="s" placeholder="Cerca">
+				</div>
+				<div class="large-4 small-3 columns">
+					<button href="#" class="button expand radius postfix"><span class="octicon octicon-search"></span></button>
+				</div>
+			</div>
+		</form>
+		<div id="authorprofilewidget-2" class="widget widget_authorprofilewidget">		<div class="text-center clearfix">
+
+			<a href="http://codeb.it/about">
+				<img src="./jQuery editTable v0.2.0_files/Follow_the_Leader-150x150.jpg" class="myradius" width="120">
+			</a>
+
+          	<h3>Alessandro Benoit</h3>
+          
+          	<p>Sviluppatore Web specializzato in <kbd>PHP</kbd> con una spiccata predilezione per <strong>WordPress</strong> e <strong>Laravel</strong>.<small> <a href="http://codeb.it/about">Di più...</a></small></p>
+
+			<div class="row">
+				<div class="small-4 column">
+					<p><a href="mailto:micc83@gmail.com"><span class="mega-octicon octicon-mail-read"></span></a></p>
+				</div>
+				<div class="small-4 column">
+					<p><a href="https://github.com/micc83"><span class="mega-octicon octicon-mark-github"></span></a></p>
+				</div>
+				<div class="small-4 column">
+					<p><a href="https://codeb.it/feed/"><span class="mega-octicon octicon-rss"></span></a></p>
+				</div>
+			</div>
+		</div>
+		</div><div id="twitterwidget-2" class="widget widget_twitterwidget">		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="it">Tweet</a>
+        <a href="https://twitter.com/micc1983" class="twitter-follow-button" data-show-count="true" data-lang="it" data-show-screen-name="false">Segui @micc1983</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		</div><div id="text-2" class="widget widget_text">			<div class="textwidget"><a href="https://www.digitalocean.com/?refcode=6b3d0a084932" target="_blank" rel="nofollow"><img src="./jQuery editTable v0.2.0_files/banner-cloud-1.jpg"></a></div>
+		</div>		<div>
+			<ul class="tabs" data-tab="">
+				<li class="tab-title active"><a href="https://codeb.it/edittable/#panel2-1"><span class="octicon octicon-list-unordered"></span></a></li>
+				<li class="tab-title"><a href="https://codeb.it/edittable/#panel2-2"><span class="octicon octicon-comment-discussion"></span></a></li>
+				<li class="tab-title"><a href="https://codeb.it/edittable/#panel2-3"><span class="octicon octicon-link"></span></a></li>
+			</ul>
+			<div class="tabs-content widget">
+				<div class="content active" id="panel2-1">
+					<ul>
+											<li class="clearfix single-widget-voice">
+							<span class="octicon octicon-file-code"></span>
+							<h5>
+								<a href="https://codeb.it/laravel-rooles-un-semplice-pacchetto-per-la-gestione-di-ruoli-e-permessi/">
+									 
+									Laravel Rooles - Semplice pacchetto per gestire Ruoli e Permessi								</a>
+							</h5>
+						</li>
+											<li class="clearfix single-widget-voice">
+							<span class="octicon octicon-file-code"></span>
+							<h5>
+								<a href="https://codeb.it/creare-applicazioni-per-windows-mac-os-e-linux-con-html5-javascript-e-css-con-nw-js/">
+									<img width="50" height="50" src="./jQuery editTable v0.2.0_files/cover-150x150.jpg" class="right myradius wp-post-image" alt="cover"> 
+									Creare applicazioni per Windows, Mac e Linux con HTML, JavaScript e CSS grazie a NW.js								</a>
+							</h5>
+						</li>
+											<li class="clearfix single-widget-voice">
+							<span class="octicon octicon-file-code"></span>
+							<h5>
+								<a href="https://codeb.it/filltext-json-demo-datasets/">
+									<img width="50" height="50" src="./jQuery editTable v0.2.0_files/url-1-150x150.jpg" class="right myradius wp-post-image" alt="url-1"> 
+									FillText - Json Demo Datasets								</a>
+							</h5>
+						</li>
+											<li class="clearfix single-widget-voice">
+							<span class="octicon octicon-file-code"></span>
+							<h5>
+								<a href="https://codeb.it/trucchi-e-pillole-di-codice-per-angularjs/">
+									<img width="50" height="50" src="./jQuery editTable v0.2.0_files/url-150x150.png" class="right myradius wp-post-image" alt="url" srcset="https://codeb.it/app/uploads/2014/11/url-150x150.png 150w, https://codeb.it/app/uploads/2014/11/url.png 500w" sizes="(max-width: 50px) 100vw, 50px"> 
+									Trucchi e pillole di codice per AngularJs								</a>
+							</h5>
+						</li>
+											<li class="clearfix single-widget-voice">
+							<span class="octicon octicon-file-code"></span>
+							<h5>
+								<a href="https://codeb.it/come-trasferire-file-in-maniera-sicura-con-sftp/">
+									<img width="50" height="50" src="./jQuery editTable v0.2.0_files/Schermata-10-2456582-alle-15.58.37-50x50.jpg" class="right myradius wp-post-image" alt="Schermata 10-2456582 alle 15.58.37" srcset="https://codeb.it/app/uploads/2013/10/Schermata-10-2456582-alle-15.58.37-50x50.jpg 50w, https://codeb.it/app/uploads/2013/10/Schermata-10-2456582-alle-15.58.37-150x150.jpg 150w" sizes="(max-width: 50px) 100vw, 50px"> 
+									Come trasferire file in maniera sicura con sftp								</a>
+							</h5>
+						</li>
+										</ul>
+				</div>
+				<div class="content" id="panel2-2">
+					<ul>
+											<li class="single-widget-voice">
+							<span class="octicon octicon-comment"></span>
+							<a target="_blank" href="https://codeb.it/edittable/" rel="external nofollow" class="url">Giovanni</a> su <a href="https://codeb.it/come-usare-piu-account-dropbox-sullo-stesso-mac/">Come usare più account Dropbox sullo stesso Mac</a>
+						</li>
+											<li class="single-widget-voice">
+							<span class="octicon octicon-comment"></span>
+							<a target="_blank" href="https://codeb.it/edittable/" rel="external nofollow" class="url">Alessandro Benoit</a> su <a href="https://codeb.it/trucchi-e-pillole-di-codice-per-angularjs/">Trucchi e pillole di codice per AngularJs</a>
+						</li>
+											<li class="single-widget-voice">
+							<span class="octicon octicon-comment"></span>
+							<a target="_blank" href="https://codeb.it/edittable/" rel="external nofollow" class="url">Gallicus</a> su <a href="https://codeb.it/trucchi-e-pillole-di-codice-per-angularjs/">Trucchi e pillole di codice per AngularJs</a>
+						</li>
+											<li class="single-widget-voice">
+							<span class="octicon octicon-comment"></span>
+							<a target="_blank" href="https://codeb.it/edittable/" rel="external nofollow" class="url">Alessandro Benoit</a> su <a href="https://codeb.it/alcuni-fix-html-per-le-vostre-newsletter/">Alcuni fix html/css per le vostre newsletter</a>
+						</li>
+											<li class="single-widget-voice">
+							<span class="octicon octicon-comment"></span>
+							<a target="_blank" href="https://codeb.it/edittable/" rel="external nofollow" class="url">daniele</a> su <a href="https://codeb.it/alcuni-fix-html-per-le-vostre-newsletter/">Alcuni fix html/css per le vostre newsletter</a>
+						</li>
+										</ul>
+				</div>
+				<div class="content" id="panel2-3">
+					<ul>
+											<li class="single-widget-voice">
+							<span class="octicon octicon-link-external"></span>
+							<a target="_blank" href="https://www.sitepoint.com/30-amazing-jquery-tables/" rel="external nofollow" class="url">12 Amazing jQuery Tables</a> su <a href="https://codeb.it/restable/">jQuery ReStable v0.1.2</a>
+						</li>
+											<li class="single-widget-voice">
+							<span class="octicon octicon-link-external"></span>
+							<a target="_blank" href="http://www.omegaweb.com/20-useful-jquery-tables-plugins-with-demos/" rel="external nofollow" class="url">20 Useful jQuery Tables Plugins with Demos</a> su <a href="https://codeb.it/restable/">jQuery ReStable v0.1.2</a>
+						</li>
+											<li class="single-widget-voice">
+							<span class="octicon octicon-link-external"></span>
+							<a target="_blank" href="http://www.omegaweb.com/20-useful-jquery-tables-plugins-with-demos/" rel="external nofollow" class="url">20 Useful jQuery Tables Plugins with Demos</a> su <a href="https://codeb.it/edittable/">jQuery editTable v0.2.0</a>
+						</li>
+											<li class="single-widget-voice">
+							<span class="octicon octicon-link-external"></span>
+							<a target="_blank" href="http://pixellib.com/jquery-resmenu-select-based-responsive-menu/" rel="external nofollow" class="url">jQuery ReSmenu – Select based Responsive menu - Pixel Library</a> su <a href="https://codeb.it/resmenu/">jQuery ReSmenu v0.1.1</a>
+						</li>
+											<li class="single-widget-voice">
+							<span class="octicon octicon-link-external"></span>
+							<a target="_blank" href="http://pixellib.com/jquery-edittable-plugin/" rel="external nofollow" class="url">jQuery editTable Plugin - Pixel Library</a> su <a href="https://codeb.it/edittable/">jQuery editTable v0.2.0</a>
+						</li>
+										</ul>
+				</div>
+        	</div>
+        </div>
+		<div id="sliderwidget-2" class="widget widget_sliderwidget"><div class="orbit-container"><ul class="example-orbit-content orbit-slides-container slide swipe-next" data-orbit="" style="min-height: 318px;">			<li data-orbit-slide="headline-1" class="active" style="">
+				<div class="single-slide">
+					<img src="./jQuery editTable v0.2.0_files/cover.jpg" style="float:right;height:150px;width:100px;">
+<h4><a href="http://codeb.it/creare-applicazioni-per-windows-mac-os-e-linux-con-html5-javascript-e-css-con-nw-js/">Create Desktop Applications using HTML5 and Javascript</a></h4>
+<p>Discover NW.js an amazing library to build Desktop Applications using the very same languages adopted on Web Development.</p>
+<a href="http://www.amazon.it/NW-js-Essentials-Alessandro-Benoit-ebook/dp/B00Y9W1H34" class="button expand radius"><span class="octicon octicon-link-external"></span></a>
+				</div>
+			</li>
+					<li data-orbit-slide="headline-2" class="" style="">
+				<div class="single-slide">
+					
+<h4><a href="http://codeb.it/fonticonpicker">jQuery fontIconPicker</a></h4>
+<p>jQuery fontIconPicker is a small (3.22KB gzipped) jQuery plugin which allows you to include an elegant icon picker...</p>
+<a href="http://codeb.it/fonticonpicker" class="button expand radius"><span class="octicon octicon-link-external"></span></a>
+				</div>
+			</li>
+					<li data-orbit-slide="headline-3" class="" style="">
+				<div class="single-slide">
+					
+<h4><a href="http://codeb.it/restable">jQuery ReStable</a></h4>
+<p>jQuery ReStable is a very simple and lightweight (~1Kb) jQuery plugin that make tables responsive...</p>
+<a href="http://codeb.it/restable" class="button expand radius"><span class="octicon octicon-link-external"></span></a>				</div>
+			</li>
+		</ul><a href="https://codeb.it/edittable/#" class="orbit-prev"><span></span></a><a href="https://codeb.it/edittable/#" class="orbit-next"><span></span></a><div class="orbit-timer"><span></span></div></div></div></div><!-- #secondary -->
+		</aside>
+
+	</div><!-- #primary -->
+
+	<!-- #content -->
+
+	<div class="footer-container">
+		<footer class="row site-footer" role="contentinfo">
+			<div class="small-12 columns site-info">
+				Theme made by <a href="http://codeb.it/about">Alessandro Benoit</a> | <a href="https://codeb.it/wp/privacy">Privacy &amp; Cookies</a> | Powered by <a href="http://wordpress.org/" target="_blank">WordPress</a> &amp; <a href="http://foundation.zurb.com/" target="_blank">Foundation</a>
+			</div><!-- .site-info -->
+		</footer><!-- #colophon -->
+	</div>
+	
+<!-- #page -->
+
+<script type="text/javascript" src="./jQuery editTable v0.2.0_files/form.js.下载"></script>
+<script type="text/javascript" src="./jQuery editTable v0.2.0_files/fastclick.js.下载"></script>
+<script type="text/javascript" src="./jQuery editTable v0.2.0_files/skip-link-focus-fix.js.下载"></script>
+<script type="text/javascript" src="./jQuery editTable v0.2.0_files/highlight.min.js.下载"></script>
+<script type="text/javascript" src="./jQuery editTable v0.2.0_files/masonry.min.js.下载"></script>
+<script type="text/javascript" src="./jQuery editTable v0.2.0_files/skip-link-focus-fix.js(1).下载"></script>
+<script type="text/javascript" src="./jQuery editTable v0.2.0_files/foundation.min.js.下载"></script>
+<script type="text/javascript" src="./jQuery editTable v0.2.0_files/script.js.下载"></script>
+<script type="text/javascript" src="./jQuery editTable v0.2.0_files/comment-reply.min.js.下载"></script>
+<script type="text/javascript" src="./jQuery editTable v0.2.0_files/wp-embed.min.js.下载"></script>
+
+<script src="./jQuery editTable v0.2.0_files/cookie.notice.min.js.下载"></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-34218175-1']);
+_gaq.push(['_setDomainName', 'codeb.it']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+
+</body></html>

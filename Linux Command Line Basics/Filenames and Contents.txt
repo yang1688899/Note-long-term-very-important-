@@ -1,0 +1,8 @@
+.jpg - photograph
+LICENSE - plain text
+.md - markdown document
+.pem - crypto key
+.sh - shell script
+special rule: if a file name contain some space or punctuation makes(!@#$%^&*[]),
+              you should refer it with quotes, or using "\" to escape the special
+              character

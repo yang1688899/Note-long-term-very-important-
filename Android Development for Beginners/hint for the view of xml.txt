@@ -1,0 +1,60 @@
+dp: unit of masure for android
+    stand for Density-Independent Pixels
+    use for layout
+    *make touch targets 48 dp at least*
+
+sp: unit of measure for android
+    stand for Scale-Independent Pixels
+    use for fronts
+
+"wrap_content": attribute value for layout
+                means value of the attribute is decided by its content size
+
+"match_parent": attribute value for layout
+                means value of the attribute is decided by its parent
+
+android:orientation : name of the attribute of LinearLayout
+                     having value "vertical" and "horizontal"
+
+RelativeLayout{
+  child view attributes:(value: "true", "false")
+    android:layout_alignParentTop
+    android:layout_alignParentBottom
+    android:layout_alignParentLeft
+    android:layout_alignParentRight
+    android:layout_centerVertical
+    android:layout_centerHorizontal
+  other child view attributes:(value: the view id)
+    android:layout_toLeftOf
+    android:layout_toRightOf
+    android:layout_above
+    android:layout_below
+}
+
+example for declare a view id and refer to one:
+  android:id="@+id/ben_TextView" (declare a view id ben_TextView)
+  andriod:layout_toLeftOf="@id/ben_TextView" (refer to the ben_TextView)
+
+padding (adding space inside views)
+  declare padding: android:padding="8dp"
+    other attributes:
+      android:paddingTop
+      android:paddingLeft
+      android:paddingRight
+      android:paddingBotton
+
+margin (create space outside views)
+  declare margin: android:margin="8dp"
+    other attributes:
+      android:marginTop
+      android:marginLeft
+      android:marginRight
+      android:marginBotton
+
+android:frontFamily - the text attribute that setting font(字型)
+  example: android:frontFamily="sans-serif-light"
+
+
+android:gravity-- attribute for position the contents of the view 
+  example
+    android:gravity="center_horizontal"

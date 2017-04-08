@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	
+	<constant name="struts.devMode" value="true" />
+
+
+	
+	<package name="service" namespace="/service" extends="struts-default">
+		
+		<action name="upload" class="com.yang.strutsuploaddownload.controller.FileUploadAction" method="upload">
+			<result name="success">/WEB-INF/page/uploadSuccess.jsp</result>
+			<result name="input">/WEB-INF/page/uploadFail.jsp</result>
+		</action>
+		
+		<action name="uploadMulti" class="com.yang.strutsuploaddownload.controller.FileUploadMultiAction" method="uploadMulti">
+			<result name="success">/WEB-INF/page/uploadMultiSuccess.jsp</result>
+			<result name="input">/WEB-INF/page/uploadFail.jsp</result>
+		</action>
+		
+		<!-- contentDisposition属性，这个属性一般用来指定我们希望通过怎么样的方式来处理下载的文件，
+		如果值是attachment，则会弹出一个下载框，让用户选择是否下载，如果不设定这个值，那么浏览器会
+		首先查看自己能否打开下载的文件，如果能，就会直接打开所下载的文件，(这当然不是我们所需要的)，
+		另外一个值就是filename这个就是文件在下载时所提示的文件下载名字 -->
+		<action name="download" class="com.yang.strutsuploaddownload.controller.DownloadAction" method="download">
+			<result name="none" type="stream">
+				 <param name="contentDisposition">attachment;filename="bootstrap(simple version).zip"</param>
+				<param name="inputName">downloadFile</param>
+			</result>
+		</action>
+		
+	</package>
+</struts>

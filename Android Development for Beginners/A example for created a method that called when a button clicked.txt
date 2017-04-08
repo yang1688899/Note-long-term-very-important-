@@ -1,0 +1,13 @@
+A example for created a method that called when a button clicked:
+  XML:
+    android:onClick="increaseQuantity"
+      means called the method named "submitOrder" when clicked the button
+
+  Jana:
+    public void increaseQuantity(View view) {
+            TextView quantityTextView = (TextView) findViewById(
+                    R.id.quantity_text_view);
+            n++;
+            quantityTextView.setText("" + n);
+            display(n);
+        }

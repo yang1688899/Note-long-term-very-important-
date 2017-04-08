@@ -1,0 +1,35 @@
+jQuery(document).ready(function($) {
+
+	if ( $('#masonry_container').length ){
+		$('#masonry_container').masonry({
+			itemSelector: '.post',
+			gutter: 30
+		});
+	}
+
+	if (typeof hljs != 'undefined'){
+		$('pre').not('.gist pre').each(function(i, e) {hljs.highlightBlock(e);});
+	}
+
+	$('.comment-reply-link, input[type=submit]').addClass('button tiny');
+	$('#cancel-comment-reply-link').addClass('button tiny alert');
+	$('.comment-reply-link').prepend('<span class="octicon octicon-plus"></span> ');
+	$('#cancel-comment-reply-link').html('<span class="octicon octicon-x"></span>');
+	$('.logged-in-as').addClass('label secondary');
+	$('.pagenation a').addClass('button small');
+
+	jQuery(document).foundation({
+		orbit: {
+			slide_number : false,
+			bullets : false,
+			timer_show_progress_bar: false,
+			next_on_click : false,
+			pause_on_hover : false,
+			timer : true
+		}
+	});
+
+});
+
+
+

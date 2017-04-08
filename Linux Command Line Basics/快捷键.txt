@@ -1,0 +1,16 @@
+Ctrl + R: Search the previous commands
+
+Tab: Autocompleted the name of a file(if the system know which one it is)
+
+Ctrl + C: Stop current running program
+
+Ctrl + D: Tell the computer this is the end of your input
+
+Interact with less  #up and down arrow key: scrolling up and down
+                     D/space: move to next page
+                     U: move back to the previous page
+                     >: skip to the last line
+                     <: skip to the first line
+                     line number: skip to the particular line
+                      /string: search in the file,press n for next occurrence
+                               N for go back to previous occurrence

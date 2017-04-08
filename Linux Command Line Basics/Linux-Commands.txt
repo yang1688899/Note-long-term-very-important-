@@ -1,0 +1,47 @@
+unzip file-name.ext	  #unzip the file
+
+curl url    #download file from the given url
+
+cat file-name.ext	  #read the file(for short file)
+
+WC file-name.ext    #word count, show the number of lines, words, and bytes in
+  the file
+
+diff file1 file2    #compare the difference between the files
+
+ls    #list the files in the current directory(not include the one start with dot".")
+
+man command    #show the manual page of the command
+
+shutdown    #shutdown the system
+
+rm file/directory   #remove or delete files or directory
+
+sort    #sort lines in alphabetical order
+
+bc    #basic calculator, enter the basic calculator environment
+
+less file-name.ext    #display the file in full screen(ps:man command are actually
+  using less to display its output)
+
+namo file-name.ext    #open and edit the file in the terminal with namo
+
+pwd   #print working directory
+
+touch filename.ext	#create a empty file
+
+mv file-name.ext destination    #move, move the file to given destination,could
+  renamed a file.
+
+cp file-name.ext destination    #copy, copy the file to given destination, could
+  renamed a file.
+
+rm file-name.ext    #remove, remove or delete a directories or files
+
+mkdir path    #make a new directory in the given path
+
+rmdir path    #delete a empty directory in the given path
+
+rm -r directory #delete a directory and its content
+
+
