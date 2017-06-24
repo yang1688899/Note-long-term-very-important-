@@ -30,17 +30,26 @@ def printpaths(path,newpath):
                '] -> ['+ ', '.join('%.3f'%x for x in new) +']'
 
 # Don't modify path inside your function.
-path = [[0, 0],
-        [0, 1],
-        [0, 2],
-        [1, 2],
-        [2, 2],
-        [3, 2],
-        [4, 2],
-        [4, 3],
-        [4, 4]]
+path=[[0, 0], 
+      [1, 0],
+      [2, 0],
+      [3, 0],
+      [4, 0],
+      [5, 0],
+      [6, 0],
+      [6, 1],
+      [6, 2],
+      [6, 3],
+      [5, 3],
+      [4, 3],
+      [3, 3],
+      [2, 3],
+      [1, 3],
+      [0, 3],
+      [0, 2],
+      [0, 1]]
 
-def smooth(path, weight_data = 0.0, weight_smooth = 0.1, tolerance = 0.000001):
+def smooth(path, weight_data = 0.1, weight_smooth = 0.1, tolerance = 0.000001):
 
 #    # Make a deep copy of path into newpath
     newpath = deepcopy(path)
@@ -52,10 +61,10 @@ def smooth(path, weight_data = 0.0, weight_smooth = 0.1, tolerance = 0.000001):
     change = 0.00001
     while change >= 0.00001:
         change = 0.0
-        for i in range(1, len(path)-1):
+        for i in range(len(path)):
             for j in range(len(path[0])):
                 old = newpath[i][j]
-                newpath[i][j] += weight_data*(path[i][j] - newpath[i][j]) +  weight_smooth *(newpath[i+1][j]+newpath[i-1][j] - 2*newpath[i][j])             
+                newpath[i][j] += weight_data*(path[i][j] - newpath[i][j]) +  weight_smooth *(newpath[(i+1)%len(path)][j]+newpath[i-1][j] - 2*newpath[i][j])             
                 change += abs (newpath[i][j] - old)
     return newpath        
 printpaths(path,smooth(path))
