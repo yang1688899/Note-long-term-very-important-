@@ -96,11 +96,26 @@ class Vector(object):
     
     #cross product, only for 3d vector
     def cross_product(self,other):
-        x1,y1,z1 = self.coordinates
-        x2,y2,z2 = other.coordinates
+        if self.dimension==2 and other.dimension==2:
+            x1,y1 = self.coordinates
+            z1 = 0.0
+            x2,y2 = other.coordinates
+            z2 = 0.0
+        elif self.dimension==3 and other.dimension==3:
+            x1,y1,z1 = self.coordinates
+            x2,y2,z2 = other.coordinates
         
         product_coordinates = [y1*z2 - y2*z1, -(x1*z2 - x2*z1), x1*y2 - x2*y1]
         return Vector(product_coordinates)
+    
+    def area_of_parallelgram_with(self,other):
+        cross_product = self.cross_product(other)
+        return cross_product.magnitude()
+    
+    def area_of_triangle_with(self,other):
+        cross_product = self.cross_product(other)
+        return cross_product.magnitude()/2.0
+    
     
 
 v = Vector((8.462,7.893,-8.187));
@@ -109,11 +124,8 @@ print (v.cross_product(w))
 
 v = Vector((-8.987,-9.838,5.031))
 w = Vector((-4.268,-1.861,-8.866))
-p = v.cross_product(w)
-print (p)
-print (p.magnitude())
+print (v.area_of_parallelgram_with(w))
 
 v = Vector((1.5,9.547,3.691))
 w = Vector((-6.007,0.124,5.772))
-p = v.cross_product(w)
-print (p.magnitude()/2.0)
+print (v.area_of_triangle_with(w))
