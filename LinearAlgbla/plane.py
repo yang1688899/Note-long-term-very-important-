@@ -98,7 +98,11 @@ class Plane(object):
     def is_parallel(self,other):
         return self.normal_vector.is_parallel(other.normal_vector)
 
-
+    def __eq__(self,other):
+        if self.is_parallel(other):
+            v = self.basepoint - other.basepoint
+            return v.is_orthogonal(self.normal_vector)
+    
     @staticmethod
     def first_nonzero_index(iterable):
         for k, item in enumerate(iterable):
@@ -114,3 +118,4 @@ class MyDecimal(Decimal):
 plane = Plane(normal_vector=Vector((3,3,3)),constant_term=8)
 plane2 = Plane(normal_vector=Vector((3,3,3)),constant_term=99)
 print (plane.is_parallel(plane2))
+print (plane==plane2)
